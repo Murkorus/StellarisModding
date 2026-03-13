@@ -1,0 +1,5 @@
+on_game_start = {
+	events = {
+		murkbbc_event.1 # Declare this mod as installed
+	}
+}

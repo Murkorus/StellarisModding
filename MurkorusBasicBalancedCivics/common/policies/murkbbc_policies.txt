@@ -1,0 +1,44 @@
+murkbbc_specialisation_directive = {
+	potential = {
+		has_civic = murkbbc_civic_specialisation_incentives
+	}
+
+	#Fires when the policy group first becomes available
+	on_activate = {
+
+	}
+
+	option = {
+		name = murkbbc_special_focus_none
+
+		policy_flags = {
+			murkbbc_flag_special_focus_none
+		}
+
+		modifier = {
+			pop_slave_bonus_workforce_mult = 0.25
+		}
+
+		AI_weight = {
+			weight = 2
+		}
+	}
+	option = {
+		name = murkbbc_special_focus_industry
+
+		policy_flags = {
+			murkbbc_flag_special_focus_industry
+		}
+
+		modifier = {
+			pop_artisan_bonus_workforce_mult = 0.25
+			pop_foundry_bonus_workforce_mult = 0.25
+			pop_slave_bonus_workforce_mult = 0.15
+			pop_cat_specialist_bonus_workforce_mult = -0.15
+		}
+
+		AI_weight = {
+			weight = 1
+		}
+	}
+}

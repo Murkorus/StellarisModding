@@ -1,9 +1,5 @@
 # Civic "Specialisation Incentives"
-# Authoritarian / Materialist civic focused on slaves. 
-# This empire is interested in optimising their labour force through advanced incentive structures.
-# While the slaves employed in by this empire are by all means still slaves, they are given more rights, more amenities, and are exclusively employed as specialists.
-# Combining the social benefits received by normal citizens with a ruthless work envirnoment has resulted in the optimal conditions for maximum productivity.
-#
+# Authoritarian / Materialist
 # A small bonus to specialist resources from jobs, or slave resources from jobs will be added.
 # This civic will allow the empire to adopt a new slavery type, which restricts the workers to only work as specialists, giving slaves a higher amenities upkeep, and increased happiness relative to other slave types.
 # A policy option will also be available, allowing the empire to pick between several types of specialist jobs to vastly increase slave resources from jobs in.
@@ -49,23 +45,15 @@ murkbbc_civic_specialisation_incentives = {
 		modifier = {
 			factor = @ai_civic_personality_match_factor
 			OR = {
-				has_ai_personality = ruthless_capitalists
-				has_ai_personality = slaving_despots
+				has_ai_personality = harmonious_hierarchy
+				has_ai_personality = decadent_hierarchy
 			}
 		}
 		modifier = {
 			factor = @ai_civic_personality_mismatch_factor
 			OR = {
-				has_ai_personality = spiritual_seekers
-				has_ai_personality = peaceful_traders
-				has_ai_personality = fanatic_befrienders
-			}
-		}
-		modifier = {
-			factor = @ai_civic_personality_forbid_factor
-			OR = {
 				has_ai_personality = erudite_explorers
-				has_ai_personality = democratic_crusaders
+				has_ai_personality = slaving_despots
 			}
 		}
 	}
@@ -73,5 +61,58 @@ murkbbc_civic_specialisation_incentives = {
 	modifier = {
 		planet_jobs_specialist_produces_mult = 0.05
 		add_attunement_the_instrument_of_desire = @civic_attunement1
+	}
+}
+
+murkbbc_civic_gladiatorial_administration = {
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		authority = {
+			NOT = {
+				value = auth_corporate
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_authoritarian
+				value = ethic_authoritarian
+				value = ethic_fanatic_authoritarian
+			}
+			OR = {
+				text = civic_tooltip_militarist
+				value = ethic_militarist
+				value = ethic_fanatic_militarist
+			}
+		}
+	}
+	random_weight = {
+		base = @civic_default_random_weight
+	}
+	ai_weight = {
+		base = @ai_civic_default_base_weight
+		modifier = {
+			factor = @ai_civic_personality_match_factor
+			OR = {
+				has_ai_personality = hegemonic_imperialists
+				has_ai_personality = honorbound_warriors
+			}
+		}
+		modifier = {
+			factor = @ai_civic_personality_mismatch_factor
+			OR = {
+				has_ai_personality = decadent_hierarchy
+			}
+		}
+	}
+	modifier = {
+		planet_army_build_speed_mult = 0.25
+		armies_cost_mult = -0.25
+		armies_upkeep_mult = -0.25
 	}
 }
